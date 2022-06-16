@@ -7,7 +7,7 @@
 
 #import "MovieViewController.h"
 #import "TableViewCell.h"
-// #import "UIImageView+AFNetworking.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface MovieViewController () <UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -46,6 +46,13 @@
     // Update title and synopsis
     cell.titleLabel.text = self.movieData[indexPath.row][@"title"];
     cell.synopsisLabel.text = self.movieData[indexPath.row][@"overview"];
+    
+    // Update image
+    NSString *urlStart = @"https://image.tmdb.org/t/p/w500";
+    NSString *urlString = [urlStart stringByAppendingString:self.movieData[indexPath.row][@"poster_path"]];
+    NSURL *url = [NSURL URLWithString:urlString];
+        [cell.posterImage setImageWithURL:url];
+    
     return cell;
 }
 
