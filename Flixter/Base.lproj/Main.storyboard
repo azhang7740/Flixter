@@ -20,9 +20,13 @@
                                 <rect key="frame" x="0.0" y="67" width="414" height="795"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <activityIndicatorView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" id="5sp-t4-qjO">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </activityIndicatorView>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customMovieCell" rowHeight="158" id="T2x-kp-oZ2" customClass="TableViewCell">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="158"/>
+                                        <rect key="frame" x="0.0" y="64.5" width="414" height="158"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T2x-kp-oZ2" id="HKn-OV-IJu">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="158"/>
@@ -63,6 +67,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="dwt-M7-aTP"/>
                     <connections>
+                        <outlet property="loadingIndicator" destination="5sp-t4-qjO" id="LJp-Ih-YUX"/>
                         <outlet property="tableView" destination="owG-br-pZm" id="DDD-Ng-j3g"/>
                     </connections>
                 </viewController>

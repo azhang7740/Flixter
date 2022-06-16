@@ -12,6 +12,7 @@
 
 @interface MovieViewController () <UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
 
 @property (nonatomic, strong) NSArray *movieData;
 
@@ -23,6 +24,7 @@
     [super viewDidLoad];
     self.tableView.dataSource = self;
     self.tableView.rowHeight = 200;
+    [self.loadingIndicator startAnimating];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
@@ -33,16 +35,17 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-           if (error != nil) {
+            if (error != nil) {
                NSLog(@"%@", [error localizedDescription]);
-           }
-           else {
+            }
+            else {
                NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
                self.movieData = dataDictionary[@"results"];
                // NSLog(@"%@", self.movieData);
                [self.tableView reloadData];
-           }
-       }];
+            }
+            [self.loadingIndicator stopAnimating];
+        }];
     [task resume];
 }
 
@@ -58,7 +61,6 @@
     NSString *urlString = [urlStart stringByAppendingString:self.movieData[indexPath.row][@"poster_path"]];
     NSURL *url = [NSURL URLWithString:urlString];
         [cell.posterImage setImageWithURL:url];
-    
     return cell;
 }
 
@@ -68,19 +70,12 @@
 
 - (void)beginRefresh:(UIRefreshControl *)refreshControl {
 
-        // Create NSURL and NSURLRequest
-
-//        NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]
-//                                                              delegate:nil
-//                                                         delegateQueue:[NSOperationQueue mainQueue]];
-        
-        // session.configuration.requestCachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
+    // Create NSURL and NSURLRequest
     NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=290a6c40d7e173d0df08968468e7af89"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
     session.configuration.requestCachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
-    NSURLSessionDataTask *task = [session dataTaskWithRequest:request
-                                                completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
     
         // ... Use the new data to update the data source ...
 
