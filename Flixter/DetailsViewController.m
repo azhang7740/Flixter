@@ -27,6 +27,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     NSLog(@"%@", self.movieDetails);
+    self.movieTitleLabel.text = self.movieDetails[@"title"];
+    self.movieSynopsisLabel.text = self.movieDetails[@"overview"];
+    
+    self.releaseDateLabel.text = [@"Release Date: " stringByAppendingString:self.movieDetails[@"release_date"]];
+    
+    NSString* rating = [NSString stringWithFormat:@"%@", self.movieDetails[@"vote_average"]];
+    NSString* num_ratings = [NSString stringWithFormat:@"%@", self.movieDetails[@"vote_count"]];
+    
+    self.ratingLabel.text = [@"Rating: " stringByAppendingString:rating];
+    self.reviewCountLabel.text = [@"Number of Reviews: " stringByAppendingString:num_ratings];
 }
 
 /*
