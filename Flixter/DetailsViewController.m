@@ -6,6 +6,7 @@
 //
 
 #import "DetailsViewController.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface DetailsViewController ()
 
@@ -37,6 +38,18 @@
     
     self.ratingLabel.text = [@"Rating: " stringByAppendingString:rating];
     self.reviewCountLabel.text = [@"Number of Reviews: " stringByAppendingString:num_ratings];
+    
+    // Adding in poster image data
+    NSString *urlStartPoster = @"https://image.tmdb.org/t/p/w500";
+    NSString *urlStringPoster = [urlStartPoster stringByAppendingString:self.movieDetails[@"poster_path"]];
+    NSURL *urlPoster = [NSURL URLWithString:urlStringPoster];
+    [self.posterImageView setImageWithURL:urlPoster];
+    
+    // Adding in backdrop image data
+    NSString *urlStartBackdrop = @"https://image.tmdb.org/t/p/w500";
+    NSString *urlStringBackdrop = [urlStartBackdrop stringByAppendingString:self.movieDetails[@"backdrop_path"]];
+    NSURL *urlBackdrop = [NSURL URLWithString:urlStringBackdrop];
+    [self.backdropImageView setImageWithURL:urlBackdrop];
 }
 
 /*
