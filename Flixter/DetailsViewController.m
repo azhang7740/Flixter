@@ -9,6 +9,16 @@
 
 @interface DetailsViewController ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *backdropImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *posterImageView;
+
+@property (weak, nonatomic) IBOutlet UILabel *movieTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *releaseDateLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
+@property (weak, nonatomic) IBOutlet UILabel *reviewCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *movieSynopsisLabel;
+
 @end
 
 @implementation DetailsViewController
