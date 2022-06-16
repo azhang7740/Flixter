@@ -7,13 +7,14 @@
 
 #import "MovieViewController.h"
 #import "TableViewCell.h"
+#import "DetailsViewController.h"
 #import "UIImageView+AFNetworking.h"
 
 @interface MovieViewController () <UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-
 @property (nonatomic, strong) NSArray *movieData;
+
 @end
 
 @implementation MovieViewController
@@ -60,14 +61,15 @@
     return self.movieData.count;
 }
 
-/*
  #pragma mark - Navigation
  
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
  // Get the new view controller using [segue destinationViewController].
  // Pass the selected object to the new view controller.
+     NSDictionary *dataToPass = self.movieData[self.tableView.indexPathForSelectedRow.row];
+     DetailsViewController *detailVC = [segue destinationViewController];
+     detailVC.movieDetails = dataToPass;
  }
- */
 
 @end
