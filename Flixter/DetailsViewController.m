@@ -50,6 +50,8 @@
     NSString *urlStringBackdrop = [urlStartBackdrop stringByAppendingString:self.movieDetails[@"backdrop_path"]];
     NSURL *urlBackdrop = [NSURL URLWithString:urlStringBackdrop];
     [self.backdropImageView setImageWithURL:urlBackdrop];
+    
+    [self.movieSynopsisLabel sizeToFit];
 }
 
 /*

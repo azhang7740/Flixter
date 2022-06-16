@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
 
+@property (nonatomic) bool hasError;
 @property (nonatomic, strong) NSArray *movieData;
 
 @end
@@ -29,14 +30,19 @@
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:refreshControl atIndex:0];
-    
-    // self.tableView.delegate = self;
+
+    [self networkRequest];
+}
+
+- (void)networkRequest {
+
     NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=290a6c40d7e173d0df08968468e7af89"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
             if (error != nil) {
-               NSLog(@"%@", [error localizedDescription]);
+                NSLog(@"%@", [error localizedDescription]);
+                self.hasError = true;
             }
             else {
                NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
@@ -47,6 +53,9 @@
             [self.loadingIndicator stopAnimating];
         }];
     [task resume];
+    if (self.hasError) {
+        
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -70,24 +79,24 @@
 
 - (void)beginRefresh:(UIRefreshControl *)refreshControl {
 
-    // Create NSURL and NSURLRequest
-    NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=290a6c40d7e173d0df08968468e7af89"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
-    session.configuration.requestCachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
-    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-    
-        // ... Use the new data to update the data source ...
-
-        // Reload the tableView now that there is new data
-        [self.tableView reloadData];
-
-        // Tell the refreshControl to stop spinning
-        [refreshControl endRefreshing];
-
-    }];
-    
-    [task resume];
+//    // Create NSURL and NSURLRequest
+//    NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=290a6c40d7e173d0df08968468e7af89"];
+//    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
+//    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
+//    session.configuration.requestCachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
+//    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+//
+//        // ... Use the new data to update the data source ...
+//
+//        // Reload the tableView now that there is new data
+//        [self.tableView reloadData];
+//
+//        // Tell the refreshControl to stop spinning
+//
+//
+//    }];
+    [self networkRequest];
+    [refreshControl endRefreshing];
 }
 
  #pragma mark - Navigation
