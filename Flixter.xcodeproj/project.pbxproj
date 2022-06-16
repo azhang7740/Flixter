@@ -18,6 +18,7 @@
 		41457145285A45C5008AFB85 /* FlixterUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 41457144285A45C5008AFB85 /* FlixterUITestsLaunchTests.m */; };
 		41457153285A4BFD008AFB85 /* MovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41457152285A4BFD008AFB85 /* MovieViewController.m */; };
 		4145715A285A6F27008AFB85 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41457159285A6F27008AFB85 /* TableViewCell.m */; };
+		4166D16F285BB4FA00CBBDBB /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4166D16E285BB4FA00CBBDBB /* DetailsViewController.m */; };
 		6D13A9B0168602B0848B9915 /* libPods-Flixter-FlixterUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9305998D6A87C20520904591 /* libPods-Flixter-FlixterUITests.a */; };
 		BC105D3D3BE1D36FE82378D8 /* libPods-Flixter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 856AAC8B5F6C8D2BA7270E26 /* libPods-Flixter.a */; };
 		FF5BE9FD7C7AEF5618939899 /* libPods-FlixterTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29ABE38F0E5716C7C84BC1A7 /* libPods-FlixterTests.a */; };
@@ -62,6 +63,8 @@
 		41457154285A5292008AFB85 /* TableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
 		41457158285A6F11008AFB85 /* MovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieViewController.h; sourceTree = "<group>"; };
 		41457159285A6F27008AFB85 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
+		4166D16D285BB4FA00CBBDBB /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		4166D16E285BB4FA00CBBDBB /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		856AAC8B5F6C8D2BA7270E26 /* libPods-Flixter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Flixter.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9305998D6A87C20520904591 /* libPods-Flixter-FlixterUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Flixter-FlixterUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		94FEFB15DA7F0C6F8A4CA31A /* Pods-Flixter-FlixterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flixter-FlixterUITests.debug.xcconfig"; path = "Target Support Files/Pods-Flixter-FlixterUITests/Pods-Flixter-FlixterUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -129,6 +132,8 @@
 				4145711F285A45C3008AFB85 /* SceneDelegate.h */,
 				41457120285A45C3008AFB85 /* SceneDelegate.m */,
 				41457125285A45C3008AFB85 /* Main.storyboard */,
+				4166D16D285BB4FA00CBBDBB /* DetailsViewController.h */,
+				4166D16E285BB4FA00CBBDBB /* DetailsViewController.m */,
 				41457154285A5292008AFB85 /* TableViewCell.h */,
 				41457159285A6F27008AFB85 /* TableViewCell.m */,
 				41457158285A6F11008AFB85 /* MovieViewController.h */,
@@ -178,7 +183,6 @@
 				CB22D26ED562CBFC3F2AC435 /* Pods-FlixterTests.debug.xcconfig */,
 				A09DA789669E673615ABE35A /* Pods-FlixterTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -387,6 +391,7 @@
 				41457153285A4BFD008AFB85 /* MovieViewController.m in Sources */,
 				4145711E285A45C3008AFB85 /* AppDelegate.m in Sources */,
 				4145712F285A45C4008AFB85 /* main.m in Sources */,
+				4166D16F285BB4FA00CBBDBB /* DetailsViewController.m in Sources */,
 				4145715A285A6F27008AFB85 /* TableViewCell.m in Sources */,
 				41457121285A45C3008AFB85 /* SceneDelegate.m in Sources */,
 			);
