@@ -10,11 +10,14 @@
 #import "DetailsViewController.h"
 #import "UIImageView+AFNetworking.h"
 
-@interface MovieViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface MovieViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
+@property (weak, nonatomic) IBOutlet UISearchBar *tableSearchBar;
 
 @property (nonatomic, strong) NSArray *movieData;
+@property (nonatomic, strong) NSArray *filteredData;
 
 @end
 
@@ -26,6 +29,9 @@
     self.tableView.delegate = self;
     self.tableView.rowHeight = 200;
     [self.loadingIndicator startAnimating];
+    
+    self.tableSearchBar.delegate = self;
+    self.tableSearchBar.showsCancelButton = true;
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
@@ -46,6 +52,7 @@
             else {
                NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
                self.movieData = dataDictionary[@"results"];
+                self.filteredData = self.movieData;
                // NSLog(@"%@", self.movieData);
                [self.tableView reloadData];
             }
@@ -68,24 +75,49 @@
     TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"customMovieCell" forIndexPath:indexPath];
     
     // Update title and synopsis
-    cell.titleLabel.text = self.movieData[indexPath.row][@"title"];
-    cell.synopsisLabel.text = self.movieData[indexPath.row][@"overview"];
+    cell.titleLabel.text = self.filteredData[indexPath.row][@"title"];
+    cell.synopsisLabel.text = self.filteredData[indexPath.row][@"overview"];
     
     // Update image
     NSString *urlStart = @"https://image.tmdb.org/t/p/w500";
-    NSString *urlString = [urlStart stringByAppendingString:self.movieData[indexPath.row][@"poster_path"]];
+    NSString *urlString = [urlStart stringByAppendingString:self.filteredData[indexPath.row][@"poster_path"]];
     NSURL *url = [NSURL URLWithString:urlString];
         [cell.posterImage setImageWithURL:url];
     return cell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.movieData.count;
+    return self.filteredData.count;
 }
 
 - (void)beginRefresh:(UIRefreshControl *)refreshControl {
     [refreshControl endRefreshing];
     [self networkRequest];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    
+    if (searchText.length != 0) {
+        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(NSDictionary *evaluatedObject, NSDictionary *bindings) {
+            return [evaluatedObject[@"title"] containsString:searchText];
+        }];
+        self.filteredData = [self.movieData filteredArrayUsingPredicate:predicate];
+        
+        NSLog(@"%@", self.filteredData);
+    }
+    else {
+        self.filteredData = self.movieData;
+    }
+    [self.tableView reloadData];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    // .tableSearchBar.showsCancelButton = NO;
+    self.tableSearchBar.text = @"";
+    [self.tableSearchBar resignFirstResponder];
+    
+    self.filteredData = self.movieData;
+    [self.tableView reloadData];
 }
 
  #pragma mark - Navigation
