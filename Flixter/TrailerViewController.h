@@ -11,7 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TrailerViewController : UIViewController
+
 @property (weak, nonatomic) IBOutlet WKWebView *trailerWebView;
+@property (nonatomic, strong) NSString *movieId;
 
 @end
 
