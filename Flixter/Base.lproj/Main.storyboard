@@ -95,8 +95,12 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
+                                <activityIndicatorView key="backgroundView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" id="kJb-nR-cd1">
+                                    <rect key="frame" x="0.0" y="-28" width="414" height="753"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </activityIndicatorView>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="5DI-r1-UY3" customClass="MoviePosterCollectionCell">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="movieCollectionCell" id="5DI-r1-UY3" customClass="MoviePosterCollectionCell">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Wlb-bc-W0q">
@@ -111,6 +115,7 @@
                                         </collectionViewCellContentView>
                                         <connections>
                                             <outlet property="movieCollectionPoster" destination="kne-vo-QA8" id="0t9-UF-Zxg"/>
+                                            <segue destination="UyQ-j0-eUG" kind="show" id="bPT-HT-bjl"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -120,6 +125,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="y1j-lY-90f"/>
+                    <connections>
+                        <outlet property="loadingIndicator" destination="kJb-nR-cd1" id="1CX-yT-OeR"/>
+                        <outlet property="moviesCollectionView" destination="G4r-5H-C8p" id="1RB-fD-LXD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrW-h1-DBi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -201,7 +210,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Js-T9-MDv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1772" y="826"/>
+            <point key="canvasLocation" x="514" y="1553"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eW7-5L-5O5">
@@ -241,6 +250,9 @@
             <point key="canvasLocation" x="950.72463768115949" y="93.75"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="bPT-HT-bjl"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

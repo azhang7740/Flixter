@@ -10,7 +10,7 @@
 #import "DetailsViewController.h"
 #import "UIImageView+AFNetworking.h"
 
-@interface MovieViewController () <UITableViewDataSource>
+@interface MovieViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
 
@@ -23,6 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.dataSource = self;
+    self.tableView.delegate = self;
     self.tableView.rowHeight = 200;
     [self.loadingIndicator startAnimating];
     
