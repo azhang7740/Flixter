@@ -41,7 +41,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<p "left">
+<p float="left">
 <img src='Demos/FlixterDemo1.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 <img src='Demos/FlixterDemo2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 </p>
