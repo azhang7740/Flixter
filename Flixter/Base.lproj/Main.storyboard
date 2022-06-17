@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Now Playing-->
+        <!--Movies-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MovieViewController" sceneMemberID="viewController">
@@ -40,7 +40,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Z0-uA-t6a">
                                                     <rect key="frame" x="141" y="11" width="253" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -67,7 +67,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Now Playing" image="now_playing_tabbar_item" id="Uao-fZ-0SR"/>
-                    <navigationItem key="navigationItem" id="dwt-M7-aTP"/>
+                    <navigationItem key="navigationItem" title="Movies" id="dwt-M7-aTP"/>
                     <connections>
                         <outlet property="loadingIndicator" destination="5sp-t4-qjO" id="LJp-Ih-YUX"/>
                         <outlet property="tableView" destination="owG-br-pZm" id="DDD-Ng-j3g"/>
@@ -134,7 +134,7 @@
             </objects>
             <point key="canvasLocation" x="40.579710144927539" y="826.33928571428567"/>
         </scene>
-        <!--Details View Controller-->
+        <!--Movie Details-->
         <scene sceneID="QzR-wO-NTh">
             <objects>
                 <viewController id="UyQ-j0-eUG" customClass="DetailsViewController" sceneMemberID="viewController">
@@ -197,7 +197,7 @@
                         <viewLayoutGuide key="safeArea" id="FJ0-Et-kbn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="mXv-Ci-lnP"/>
+                    <navigationItem key="navigationItem" title="Movie Details" id="mXv-Ci-lnP"/>
                     <connections>
                         <outlet property="backdropImageView" destination="qKH-jN-YZl" id="d1s-55-J1J"/>
                         <outlet property="movieSynopsisLabel" destination="rYW-4m-Vcy" id="EN0-b2-pRM"/>
@@ -220,6 +220,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ika-i6-peI">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <navigationBarAppearance key="standardAppearance"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -251,7 +252,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="bPT-HT-bjl"/>
+        <segue reference="7yt-LY-doD"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="now_playing_tabbar_item" width="21" height="21"/>
