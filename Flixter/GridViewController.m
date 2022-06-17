@@ -98,11 +98,4 @@
     return self.movieData.count;
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    int totalWidth = self.moviesCollectionView.bounds.size.width;
-    int numberOfCellsPerRow = 4;
-    int dimensions = (CGFloat)(totalWidth / numberOfCellsPerRow);
-    return CGSizeMake(dimensions, dimensions * 1.2);
-}
-
 @end
