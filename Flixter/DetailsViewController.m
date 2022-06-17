@@ -27,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSLog(@"%@", self.movieDetails);
+    // NSLog(@"%@", self.movieDetails);
     self.movieTitleLabel.text = self.movieDetails[@"title"];
     self.movieSynopsisLabel.text = self.movieDetails[@"overview"];
     
