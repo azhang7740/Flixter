@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Now Playing-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MovieViewController" sceneMemberID="viewController">
@@ -66,7 +66,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Uao-fZ-0SR"/>
+                    <tabBarItem key="tabBarItem" title="Now Playing" image="now_playing_tabbar_item" id="Uao-fZ-0SR"/>
                     <navigationItem key="navigationItem" id="dwt-M7-aTP"/>
                     <connections>
                         <outlet property="loadingIndicator" destination="5sp-t4-qjO" id="LJp-Ih-YUX"/>
@@ -77,7 +77,7 @@
             </objects>
             <point key="canvasLocation" x="951" y="827"/>
         </scene>
-        <!--Item-->
+        <!--Movies-->
         <scene sceneID="IqU-G6-vGC">
             <objects>
                 <viewController id="HjU-0M-gAV" customClass="GridViewController" sceneMemberID="viewController">
@@ -124,7 +124,7 @@
                         <viewLayoutGuide key="safeArea" id="Yzl-p6-vSe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="y1j-lY-90f"/>
+                    <tabBarItem key="tabBarItem" title="Movies" image="ticket_tabbar_icon" id="y1j-lY-90f"/>
                     <connections>
                         <outlet property="loadingIndicator" destination="kJb-nR-cd1" id="1CX-yT-OeR"/>
                         <outlet property="moviesCollectionView" destination="G4r-5H-C8p" id="1RB-fD-LXD"/>
@@ -254,6 +254,8 @@
         <segue reference="bPT-HT-bjl"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="now_playing_tabbar_item" width="21" height="21"/>
+        <image name="ticket_tabbar_icon" width="25" height="25"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
