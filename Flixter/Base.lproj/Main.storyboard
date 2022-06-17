@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rvw-UX-ZxX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CyS-DE-7y4">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Movies-->
+        <!--Now Playing-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MovieViewController" sceneMemberID="viewController">
@@ -66,8 +66,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Now Playing" image="now_playing_tabbar_item" id="Uao-fZ-0SR"/>
-                    <navigationItem key="navigationItem" title="Movies" id="dwt-M7-aTP"/>
+                    <navigationItem key="navigationItem" title="Now Playing" id="dwt-M7-aTP"/>
                     <connections>
                         <outlet property="loadingIndicator" destination="5sp-t4-qjO" id="LJp-Ih-YUX"/>
                         <outlet property="tableView" destination="owG-br-pZm" id="DDD-Ng-j3g"/>
@@ -75,7 +74,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="951" y="827"/>
+            <point key="canvasLocation" x="1683" y="826"/>
         </scene>
         <!--Movies-->
         <scene sceneID="IqU-G6-vGC">
@@ -124,7 +123,7 @@
                         <viewLayoutGuide key="safeArea" id="Yzl-p6-vSe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Movies" image="ticket_tabbar_icon" id="y1j-lY-90f"/>
+                    <navigationItem key="navigationItem" title="Movies" id="dgy-gf-TT6"/>
                     <connections>
                         <outlet property="loadingIndicator" destination="kJb-nR-cd1" id="1CX-yT-OeR"/>
                         <outlet property="moviesCollectionView" destination="G4r-5H-C8p" id="1RB-fD-LXD"/>
@@ -132,7 +131,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrW-h1-DBi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="40.579710144927539" y="826.33928571428567"/>
+            <point key="canvasLocation" x="99" y="826"/>
         </scene>
         <!--Movie Details-->
         <scene sceneID="QzR-wO-NTh">
@@ -157,7 +156,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBc-Tz-zPV">
                                         <rect key="frame" x="149" y="242" width="251" height="42"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -212,25 +211,6 @@
             </objects>
             <point key="canvasLocation" x="514" y="1553"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="eW7-5L-5O5">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rvw-UX-ZxX" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ika-i6-peI">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <navigationBarAppearance key="standardAppearance"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="CyS-DE-7y4" kind="relationship" relationship="rootViewController" id="uGL-SG-ibW"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qUW-sq-ZbB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="40.579710144927539" y="93.75"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="5kX-rx-Pbt">
             <objects>
@@ -238,17 +218,56 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="heo-Tq-Ib2"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="P8i-nA-2eE">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="ShJ-Nc-aVH"/>
-                        <segue destination="HjU-0M-gAV" kind="relationship" relationship="viewControllers" id="BEY-4Q-5gm"/>
+                        <segue destination="wz3-Ew-vVc" kind="relationship" relationship="viewControllers" id="ShJ-Nc-aVH"/>
+                        <segue destination="KRC-UI-vCt" kind="relationship" relationship="viewControllers" id="BEY-4Q-5gm"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WL8-TX-YIL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="950.72463768115949" y="93.75"/>
+            <point key="canvasLocation" x="513" y="96"/>
+        </scene>
+        <!--Now Playing-->
+        <scene sceneID="X6j-Kd-7i4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wz3-Ew-vVc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Now Playing" image="now_playing_tabbar_item" id="Uao-fZ-0SR"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xcB-fT-pQk">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="uIT-A7-ZR9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dEC-g1-kq6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="935" y="826"/>
+        </scene>
+        <!--Movies-->
+        <scene sceneID="dSD-FZ-mF8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KRC-UI-vCt" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Movies" image="ticket_tabbar_icon" id="y1j-lY-90f"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BTq-jT-ReV">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HjU-0M-gAV" kind="relationship" relationship="rootViewController" id="maz-Mt-rRo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sVL-CK-iJz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-680" y="826"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
