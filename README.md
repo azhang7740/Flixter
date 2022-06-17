@@ -50,7 +50,10 @@ GIF created with [Kap](https://getkap.co/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Challenges:
+- Fetching the API data
+- Understanding git and version control
+- Getting GIFs to show up on the readme
 
 ## Credits
 
