@@ -54,9 +54,9 @@
 }
 
 - (void)displayNetworkAlert {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Simple" message:@"Simple alertView demo with Cancel and OK." preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Oops!" message:@"It seems you're offline. Click below to reload." preferredStyle:UIAlertControllerStyleAlert];
     [self presentViewController:alertController animated: YES completion: nil];
-    UIAlertAction * okAction = [UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+    UIAlertAction * okAction = [UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
         [self.loadingIndicator startAnimating];
         [self networkRequest];
         }];
