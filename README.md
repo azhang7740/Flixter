@@ -35,7 +35,7 @@ The following **additional** features are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1. Finish trailer feature. 
+1. Add user reviews at the bottom of movie details
 2. Change some UI elements to look more visually appealing. 
 
 ## Video Walkthrough
