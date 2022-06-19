@@ -29,6 +29,7 @@ The following **optional** features are implemented:
 - [ ] Run your app on a real device.
 
 The following **additional** features are implemented:
+- [X] Trailers are linked by a button on movie details screen
 
 - [ ] List anything else that you can get done to improve the app functionality!
 
