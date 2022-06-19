@@ -45,6 +45,7 @@ Here's a walkthrough of implemented user stories:
 <p float="left">
 <img src='Demos/FlixterDemo1.gif' title='Video Walkthrough' width='200' alt='Video Walkthrough' />
 <img src='Demos/FlixterDemo2.gif' title='Video Walkthrough' width='200' alt='Video Walkthrough' />
+<img src='Demos/FlixterDemo3.gif' title='Video Walkthrough' width='200' alt='Video Walkthrough' />
 </p>
 
 GIF created with [Kap](https://getkap.co/).
