@@ -14,6 +14,8 @@
 
 @property (nonatomic, strong) NSArray *movieData;
 @property (weak, nonatomic) IBOutlet UICollectionView *moviesCollectionView;
+@property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
+
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
 
 @end
