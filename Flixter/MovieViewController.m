@@ -38,6 +38,7 @@
     [self.tableView insertSubview:refreshControl atIndex:0];
 
     [self networkRequest];
+    NSLog(@"%@", self.movieData);
 }
 
 - (void)networkRequest {
